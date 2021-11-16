@@ -1,0 +1,59 @@
+@startuml
+class Items {
+- String description
+- Date dueDate
+- boolean completed
++ String getDescription()
++ void setDescription(String description)
++ String getDueDate()
++ void setDueDate(String dueDate)
++ boolean isCompleted()
++ void setCompleted(boolean completed)
++ void editDescription (String newName)
++ void editDueDate (String newDate)
++ void completed ()
+}
+class ToDoController {
+- ToDoList data
+- TextField addItemDescription
+- DatePicker addItemDueDate
+- TextField descriptionItem
+- DatePicker editDate
+- ListView<Items> listView
+- Menu loadList
+- TextField searchItem
+void completedClicked(ActionEvent event)
+void descriptionItemClicked(ActionEvent event)
+void editDateClicked(ActionEvent event)
+void editDeleteItemClicked(ActionEvent event)
+void addItemClicked(ActionEvent event)
+void itemIncompleteClicked(ActionEvent event)
+void loadListClicked(ActionEvent event)
+void storeListClicked(ActionEvent event)
+void viewAllItemsClicked(ActionEvent event)
+void viewCompletedItemsClicked(ActionEvent event)
+void viewIncompleteClicked(ActionEvent event)
+}
+
+class ToDoList {
+- List <Items> items
++ List<Items> getItems()
++ void setItems(List<Items> items)
++ ToDoList()
++ void removeItem (String itemName)
++ void viewList (ListView listView, int i)
++ void storeList ()
++ void loadList ()
+}
+
+class ToDoApplication{
++ void start(Stage stage)
++ void stop ()
++ static void main(String[] args)
+}
+
+ToDoApplication -> ToDoController
+ToDoController->ToDoList
+ToDoList -> Items
+
+@enduml
