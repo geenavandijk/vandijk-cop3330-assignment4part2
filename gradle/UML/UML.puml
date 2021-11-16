@@ -1,0 +1,81 @@
+@startuml
+class ToDoController{
+- ToDoListManager data
+- TextField descriptionItem
+- TextField editAddListTitle
+- MenuItem editDate
+- MenuItem editDeleteItem
+- MenuItem editDeleteList
+- MenuItem editDescription
+- TextField editListAddItem
+- TextField editSearchList
+- MenuItem loadAll
+- TextField loadSelectList
+- TextField searchItem
+- MenuItem storeAll
+- TextField storeSingleList
+- TextField titleList
+- MenuItem viewAll
+- TextField viewSelectList
+- MenuItem viewSelectListAllItems
+- MenuItem viewSelectListCompletedItems
+- MenuItem viewSelectListIncompletedItems
+void editDateClicked(ActionEvent event)
+void editDeleteItemClicked(ActionEvent event)
+void editDeleteListClicked(ActionEvent event)
+void editDescriptionClicked(ActionEvent event)
+void completedClicked(ActionEvent event)
+void editListAddItemClicked(ActionEvent event)
+void loadAllClicked(ActionEvent event)
+void loadSelectListClicked(ActionEvent event)
+void storeAllClicked(ActionEvent event)
+void storeSingleListClicked(ActionEvent event)
+void viewAllClicked(ActionEvent event)
+void viewSelectListAllItemsClicked(ActionEvent event)
+void viewSelectListCompletedItemsClicked(ActionEvent event)
+void viewSelectListIncompletedClicked(ActionEvent event)
+}
+
+class ToDoApplication extends Application {
++ void start (Stage stage)
++ void stop ()
++ static void main (String[] args)
+}
+
+class ToDoList {
+List <Items> items
+String toDoListTitle
+int numItems
+
++ void setItems
++ List<Items> getItems()
++ String getToDoListTitle()
++ void setToDoListTitle(String toDoListTitle)
++ ToDoList()
++ void removeItem (String itemName)
++ void viewList (String title, int option)
++ void storeList (String listTitle)
+
+}
+
+class Items {
+String description
+Date dueDate
+boolean completed
+
++ String getDescription()
++ void setDescription(String description)
++ Date getDueDate()
++ void setDueDate(String dueDate)
++ boolean isCompleted()
++ void setCompleted(boolean completed)
++ void editDescription (String newName)
++ void editDueDate (Date newDate)
++ void completed ()
+}
+
+ToDoList --> Items
+ToDoApplication --> ToDoController
+ToDoController --> ToDoList
+ToDoController --> Items
+@enduml

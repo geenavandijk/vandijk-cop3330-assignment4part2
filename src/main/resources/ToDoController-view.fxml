@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane accessibleRole="BUTTON" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.ToDoController">
+    <children>
+        <Label alignment="CENTER" layoutX="35.0" layoutY="24.0" prefHeight="17.0" prefWidth="530.0" text="To Do List Manager" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" underline="true">
+            <font>
+                <Font size="19.0" />
+            </font>
+        </Label>
+        <MenuBar accessibleRole="BUTTON" layoutX="207.0" layoutY="70.0" nodeOrientation="RIGHT_TO_LEFT">
+            <menus>
+                <Menu mnemonicParsing="false" text="Load">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#loadListClicked" text="Load List" />
+               </items></Menu>
+                <Menu mnemonicParsing="false" text="View">
+                    <items>
+                          <MenuItem mnemonicParsing="false" onAction="#viewAllItemsClicked" text="View All Items" />
+                          <MenuItem mnemonicParsing="false" onAction="#viewCompletedItemsClicked" text="View Completed Items" />
+                          <MenuItem mnemonicParsing="false" onAction="#viewIncompleteClicked" text="View Incomplete Items" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                  <Menu mnemonicParsing="false" text="Add Item">
+                    <items>
+                        <Menu mnemonicParsing="false" text="Description">
+                           <graphic>
+                                          <TextField fx:id="addItemDescription" />
+                           </graphic>
+                           <items>
+                            <MenuItem mnemonicParsing="false" text="Due Date">
+                                 <graphic>
+                                    <DatePicker fx:id="addItemDueDate" nodeOrientation="LEFT_TO_RIGHT" onAction="#addItemClicked" />
+                                 </graphic>
+                              </MenuItem>
+                           </items>
+                        </Menu>
+                    </items>
+                  </Menu>
+                            <Menu mnemonicParsing="false" text="Edit Item">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#editDeleteItemClicked" text="Delete Item" />
+                                    <MenuItem mnemonicParsing="false" text="Edit Due Date">
+                                        <graphic>
+                                            <DatePicker fx:id="editDate" nodeOrientation="LEFT_TO_RIGHT" onAction="#editDateClicked" />
+                                        </graphic>
+                                    </MenuItem>
+                                    <CheckMenuItem mnemonicParsing="false" text="Completed">
+                                        <graphic>
+                                            <CheckBox mnemonicParsing="false" onAction="#completedClicked" text="CheckBox" />
+                                        </graphic>
+                                    </CheckMenuItem>
+                        <CheckMenuItem mnemonicParsing="false" text="Incomplete">
+                           <graphic>
+                              <CheckBox mnemonicParsing="false" onAction="#itemIncompleteClicked" text="CheckBox" />
+                           </graphic>
+                        </CheckMenuItem>
+                                    <MenuItem mnemonicParsing="false" text="Edit Description">
+                                        <graphic>
+                                            <TextField fx:id="descriptionItem" onAction="#descriptionItemClicked" />
+                                        </graphic>
+                                    </MenuItem>
+                                </items>
+                                <graphic>
+                                    <TextField fx:id="searchItem" />
+                                </graphic>
+                            </Menu>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Store">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#storeListClicked" text="Store List" />
+               </items></Menu>
+            </menus>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <cursor>
+                <Cursor fx:constant="CLOSED_HAND" />
+            </cursor>
+        </MenuBar>
+      <ListView fx:id="listView" layoutX="107.0" layoutY="151.0" prefHeight="200.0" prefWidth="385.0" />
+    </children>
+    <cursor>
+        <Cursor fx:constant="DEFAULT" />
+    </cursor>
+</AnchorPane>
